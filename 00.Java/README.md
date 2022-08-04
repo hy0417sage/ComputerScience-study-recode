@@ -240,8 +240,6 @@ try {
     value = -1;  // 예외가 발생하여 이 문장이 수행된다.
 }
 ~~~
-- ArithmeticException e에서 e는 ArithmeticException 클래스의 객체, 즉 오류 객체에 해당한다. 이 오류 객체를 통해 해당 예외 클래스의 메서드를 호출할수 있다.
-- 모든 예외의 부모 클래스는 java.lang.Exception 클래스다.
 
 ## 30. finally
 - 프로그램 수행 도중 예외가 발생하면 프로그램이 중지되거나 예외 처리에 의해 catch 구문이 실행된다. 
