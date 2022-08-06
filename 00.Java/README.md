@@ -448,4 +448,104 @@ System.out.printIn(refInt1+refInt2+”7”);
 
 ### 자바랭의 각종 정보를 확인하기 위한 System 클래스
 
+## 21장 제네릭
+#### DTO (Data Transfer Object)
+- Private
+- Getter
+- Setter
+- Serializable
+#### [DTO 클래스]
+~~~java
+Package d.generic;
+
+Import java.io.Serializable;
+
+Public class CastingDTO implements Serializable{
+	private Object object;
+	public void setObject(Object object){
+		this.object = object;
+	}
+	public void getObject(Object object){
+		return object;
+	}
+}
+~~~
+CastingDTO 클래스에서 getObject를 호출할 때 리턴값으로 넘어오는 타입은 Object이기 때문에 각각의 타입으로 형 변환을 해주어야 한다.
+
+## 제네릭이란?
+- 위와 같은 타입 형 변환에서 발생할 수 있는 문제점을 ‘사전’에 없애기 위해서 만들어진 것이 제네릭 이다. *사전 : 컴파일 시 점검
+~~~java
+Package d.generic;
+
+Import java.io.Serializable;
+
+Public class CastingGenericDTO<T> implements Serializable{
+	private Object object;
+	public void setObject(T object){
+		this.object = object;
+	}
+	public T getObject(){
+		return object;
+	}
+}
+~~~
+꺽쇠<> 부분이 생겼다. <br>
+꺽쇠 안의 값은 가상의 타입 이름으로 아무 이름으로 지정해도 컴파일 하는데 상관이 없다. (클래스 이름과 명명 규칙을 동일하게 지정하는 것이 좋다.)<br>
+그럼 CastingDTO 와 CastingGenericDTO 의 객체 선언 차이를 보자<br>
+~~~ java
+// CastingDTO
+CastingDTO dto1 = new CastingDTO();
+dto.setObject(new String());
+String temp1 = (String) dto.getObject(); //String으로 형 변환을 해준다.
+
+// CastingGenericDTO
+CastingGenericDTO<String> dto = new CastingGenericDTO<String>();
+dto2.setObject(new String());
+String temp2 = dto2.getObject(); 
+// 객체에 선언되어 있는 dto2의 제네릭 타입은 String이기 때문에 형 변환을 해줄 필요가 없음으로 ‘실행’시에 다른 타입으로 잘못 형 변환을 하여 예외가 발생하는 일은 없다.
+~~~
+
+## 제네릭 타입 이름 정하기 : 자바에서 정의한 기본 규칙
+- E : 앨리먼트, 자바 컬렉션 에서 사용됨
+- K : 키
+- N : 숫자
+- T : 타입
+- V : 값
+- S, U, V : 두 번째, 세 번째, 네번째에 선언된 타입
+
+## 제네릭의 ‘?’ 란 (Wildcard 타입)
+~~~java
+public void stringMethod(WildcardGeneric<String> c){
+} 
+~~~
+String이 아닌 다른 타입으로 선언된 WildcardGeneric 객체를 받으려면 
+ ~~~java
+public void stringMethod(WildcardGeneric<?> c){
+} 
+~~~
+이와 같이 선언하면 된다. <br>
+하지만 메소드 내부에서는 해당 타입을 잘 모르기 때문에 Object로 값을 받아야 한다.<br>
+만약 넘어오는 타입이 2,3 가지로 정해져 있다면, instanceof예약어를 사용하여 해당 타입을 확인하면 된다.<br>
+wildcard는 메소드의 매개 변수로만 사용하는 것이 좋다.
+
+## <> 안에는 wildcard로 사용하는 타입을 제한할 수 있다.
+- ‘?’대신 ‘? extend 타입’ 으로 선택할 수 있다.
+~~~java
+Public void boundedWildcardMethod(WildcardGeneric<? Extends Car> c){
+	Car value = c.getWildcard();
+	System.out.println(value);
+}
+~~~
+이 경우 반드시 Car과 관련되어 있는 상속한 클래스가 넘어와야 한다.<br>
+‘? extends 타입’ 과 같은 것을 Bounded Wildcard라고 부른다. 매개 변수로 넘어오는 제네릭 타입의 경계를 지정하는 데 사용한다는 의미로 해석하면 된다.
+
+## 메소드를 제네릭하게 선언하기
+wildcard로 메소드를 선언할 때 매개 변수로 사용된 객체에 값을 추가할 수 없다는 단점이 있다.<br>
+값을 추가하기 위해선,
+~~~java
+public <T> void genericMethod(wildcardGeneric<T> c, T addValue){
+	//TODO
+} 
+~~~
+메소드 선언시 리턴 타입 앞에 제네릭한 타입을 선언해 주고, 그 타입을 매개 변수에서 사용하면 컴파일 할때 문제 없고 값도 할당 할 수 있다.
 
