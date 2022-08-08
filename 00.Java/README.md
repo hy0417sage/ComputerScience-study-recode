@@ -472,7 +472,7 @@ Public class CastingDTO implements Serializable{
 ~~~
 CastingDTO 클래스에서 getObject를 호출할 때 리턴값으로 넘어오는 타입은 Object이기 때문에 각각의 타입으로 형 변환을 해주어야 한다.
 
-## 제네릭이란?
+## 45. 제네릭이란?
 - 위와 같은 타입 형 변환에서 발생할 수 있는 문제점을 ‘사전’에 없애기 위해서 만들어진 것이 제네릭 이다. *사전 : 컴파일 시 점검
 ~~~java
 Package d.generic;
@@ -505,7 +505,7 @@ String temp2 = dto2.getObject();
 // 객체에 선언되어 있는 dto2의 제네릭 타입은 String이기 때문에 형 변환을 해줄 필요가 없음으로 ‘실행’시에 다른 타입으로 잘못 형 변환을 하여 예외가 발생하는 일은 없다.
 ~~~
 
-## 제네릭 타입 이름 정하기 : 자바에서 정의한 기본 규칙
+## 46. 제네릭 타입 이름 정하기 : 자바에서 정의한 기본 규칙
 - E : 앨리먼트, 자바 컬렉션 에서 사용됨
 - K : 키
 - N : 숫자
@@ -513,7 +513,7 @@ String temp2 = dto2.getObject();
 - V : 값
 - S, U, V : 두 번째, 세 번째, 네번째에 선언된 타입
 
-## 제네릭의 ‘?’ 란 (Wildcard 타입)
+## 47. 제네릭의 ‘?’ 란 (Wildcard 타입)
 ~~~java
 public void stringMethod(WildcardGeneric<String> c){
 } 
@@ -539,7 +539,7 @@ Public void boundedWildcardMethod(WildcardGeneric<? Extends Car> c){
 이 경우 반드시 Car과 관련되어 있는 상속한 클래스가 넘어와야 한다.<br>
 ‘? extends 타입’ 과 같은 것을 Bounded Wildcard라고 부른다. 매개 변수로 넘어오는 제네릭 타입의 경계를 지정하는 데 사용한다는 의미로 해석하면 된다.
 
-## 메소드를 제네릭하게 선언하기
+## 48. 메소드를 제네릭하게 선언하기
 wildcard로 메소드를 선언할 때 매개 변수로 사용된 객체에 값을 추가할 수 없다는 단점이 있다.<br>
 값을 추가하기 위해선,
 ~~~java
