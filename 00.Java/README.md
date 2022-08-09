@@ -549,3 +549,27 @@ public <T> void genericMethod(wildcardGeneric<T> c, T addValue){
 ~~~
 메소드 선언시 리턴 타입 앞에 제네릭한 타입을 선언해 주고, 그 타입을 매개 변수에서 사용하면 컴파일 할때 문제 없고 값도 할당 할 수 있다.
 
+## 49. 자바의 컬렉션
+- 목록성 데이터를 처리하는 자료구조
+- 자바에서는 set, list, queue 가 collection 이라는 인터페이스를 구현하고 있다.
+
+## 50. List 목록
+- 배열처럼 순서를 가지고 있는 인터페이스 이다.
+- List 인터페이스를 구현한 클래스들은 매우 많다.
+- ArrayList, Vector, Stack, LinkedList를 많이 사용한다.
+
+## 51. ArrayList와 Vector
+- 사용법과 기능 둘다 거의 비슷하다. 이 두 클래스는 '확장 가능한 배열'이라고 생각하면 된다.
+- 차이점 : ArrayList의 객체는 여러명이 달려들어 값을 변경하려고 하면 문제가 발생할 수 있고, Vector는 그렇지 않다. (Vector는 (Tread safe) 하다.)
+- 대부분의 메소드가 ArrayList와 동일하고, 보통 Vector 보다 ArrayList를 선호한다.
+
+## 52. Stack
+- vector 클래스를 확장하여 만들었다.
+- Last in Frist out
+- 메소드가 호출된 순서를 기억하는 장소를 말한다.
+
+## 53. LinkedList
+- '목록'과 '큐'에 속하는 클래스 이다.
+
+## 54. ArrayList
+
