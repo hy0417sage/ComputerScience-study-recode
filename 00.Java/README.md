@@ -564,6 +564,7 @@ public <T> void genericMethod(wildcardGeneric<T> c, T addValue){
 - 대부분의 메소드가 ArrayList와 동일하고, 보통 Vector 보다 ArrayList를 선호한다.
 
 ## 52. Stack
+- 마지막 데이터를 가장 처음에 꺼내는 기능을 구현하려고 할때 필요한 클래스 이다.
 - vector 클래스를 확장하여 만들었다.
 - Last in Frist out
 - 메소드가 호출된 순서를 기억하는 장소를 말한다.
@@ -572,4 +573,6 @@ public <T> void genericMethod(wildcardGeneric<T> c, T addValue){
 - '목록'과 '큐'에 속하는 클래스 이다.
 
 ## 54. ArrayList
+
+## 55. 
 
