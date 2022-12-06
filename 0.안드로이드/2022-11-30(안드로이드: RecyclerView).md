@@ -31,5 +31,7 @@
 - 나오게 된 이유 : 데이터가 적을 경우, 빠르게 뷰의 구성 요소들을 findViewById()를 통해 조회해 적용시킬 수 있다. 하지만, 데이터가 많아질 경우 계속 findViewById()를 호출하다 보면 많은 비용을 요구(아래 설명 참고)하게 되어, 결국 호출을 이기지 못해 느려질 것이다.
 이를 위해 나온게 뷰홀터 패턴
 
-## ViewHolder Pattern을 사용하기 위해선
-- RecyclerView.Adapter를 상속받으면 호출되는 onCreateViewHolder와 onBindViewHolder를 이용하면 된다.
+## 리사이클러뷰 필수 오버이딩 요소
+- onCreateViewHolder = ViewHolder 객체를 생성
+- onBindViewHolder = ViewHolder 에 data 를 넣는 작업 수행
+- getItemCount = data의 갯수를 반환 해준다
