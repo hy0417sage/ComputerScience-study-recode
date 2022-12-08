@@ -1,5 +1,6 @@
 # ComputerScience
 
+## Android 2022-12-06
 ### 개념
 - **AAC-ViewModel**
   - 회전할 때 왜 데이터가 유지되는가?
