@@ -11,5 +11,4 @@
 - Activity가 재생성되어 onCreate()가 다시 호출 되었다면 savedInstanceState는 null이 아니다.
 - 하지만 savedInstanceState의 null체크는 액티비티가 재생성 되었는지 체크할 수 있는 수단이 되는것이고, 재생성 되었을때는 프레그먼트를 화면에 보여주지 않는것인가?
 - 아니다. 프레그먼트는 잘 나온다. 이상하다. 분명 액티비티는 재생성된것이고, 프레그먼트를 추가한적이 없는데, 프레그먼트가 화면에 나온다.
-- 이유는, 이미 생성되어 추가되었던 프레그먼트들은 configuration change에도 프레그먼트매니저(supportFragmentManager)에의해 살아남아 자동으로 관리가 된다. 
-
+- 이유는, 이미 생성되어 추가되었던 프레그먼트들은 configuration change에도 프레그먼트매니저(supportFragmentManager)에의해 살아남아 자동으로 관리가 된다.
