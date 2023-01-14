@@ -1,10 +1,5 @@
 주 생성자(Primary constructor)와 초기화 블록
 코틀린의 클래스는 하나의 주 생성자(primary constructor)와 다수의 부 생성자(secondary constructor)를 가질 수 있습니다. 여기서 constructor 키워드는 주 생성자나 부생성자 정의를 시작할 때 사용됩니다.
-
-
-
-
-
 주 생성자는  생성자 파라미터를 지정하고 그 생성자 파라미터에 의해 초기화 되는 프로퍼티를 정의하는 두가지 목적에 쓰입니다.
 
 
