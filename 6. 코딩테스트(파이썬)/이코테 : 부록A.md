@@ -47,6 +47,7 @@ def heapSort(iterable):
 - 덱, 카운터 등의 유용한 자료구조를 포함하고 있는 라이브러리이다.
 - deque : bfs
 - Counter : 등장 횟수를 세는 기능을 제공한다.
+- defualtdict : 딕셔너리 초기화
 
 
 # math : 팩토리얼, 제곱근, 최대공약수(GCD), 삼각함수
