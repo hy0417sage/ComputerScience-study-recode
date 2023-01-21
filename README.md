@@ -1,5 +1,5 @@
-# 🔆 CS 공부 정리 노트
-### ✅ [컴퓨터구조 11/22 ~ 12/15]()
+# 🔆 CS 공부 기록
+### ✅ [컴퓨터구조](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/1.%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
 01. 컴퓨터가 이해하는 정보 
 02. 데이터 
 03. 명령어 
@@ -10,7 +10,7 @@
 08. 입출력장치
 
 
-### ✅ [운영체제 11/22 ~ 12/15]()
+### ✅ [운영체제](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/1.%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
 1. 운영체제를 알아야하는 이유
 2. 프로세스와 스레드
 3. CPU 스케줄링
@@ -20,48 +20,34 @@
 7. 파일 시스템
 
 
-### ✅ [네트워크 12/16 ~ 12/30]()
+### ✅ [네트워크](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/2.%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 1. OSI 7계층과 TCP/IP 4계층
 2. HTTP
 
-### ✅ [자료구조 12/24, 25, 26]()
-#### 12/24
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2024%EC%9D%BC.md)
+
+### ✅ [자료구조](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/3.%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 - Array
 - LinkedList
 - Stack
 - Queue
 - Tree
-#### 12/25
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2025%EC%9D%BC.md)
 - Binary Tree
 - Binary Search Tree     
 - Binary Heap
 - Red black tree
 - Hash Table
-#### 12/26
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2026%EC%9D%BC.md)
 - Graph
 - BFS
 - DFS
 - 최소 신장 트리
 - 크루스칼 알고리즘
 
-### ✅ [알고리즘 12/27, 28, 29]()
-#### 12/27
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2027%EC%9D%BC.md)
+### ✅ [알고리즘](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/3.%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 - 거품 정렬(Bubble Sort)
 - 선택 정렬(Selection Sort)
 - 삽입 정렬(Insertion Sort)
-#### 12/28
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2028%EC%9D%BC.md)
 - 퀵 정렬(Quick Sort)      
 - 병합 정렬(Merge Sort)
 - 힙 정렬(Heap Sort)
-#### 12/29
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2029%EC%9D%BC.md)
 - 이분 탐색(Binary Search)
 - 다익스트라(Dijkstra) 알고리즘
-
-### 12/30
-- [os](https://github.com/hy0417sage/apply/blob/main/12%EC%9B%94%2030%EC%9D%BC.md)
