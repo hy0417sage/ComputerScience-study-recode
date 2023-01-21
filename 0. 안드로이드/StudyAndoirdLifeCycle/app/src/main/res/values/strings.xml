@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidLifeCycleTest</string>
+    <string name="button_dialog">다이얼로그</string>
+    <string name="button_activity_change">액티비티 전환</string>
+    <string name="dialog_message">생명주기 공부</string>
+    <string name="dialog_title">제목</string>
+
+    <string name="first_activity_title">First activity</string>
+    <string name="second_activity_title">Second activity</string>
+</resources>
