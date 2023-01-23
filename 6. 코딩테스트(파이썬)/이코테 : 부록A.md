@@ -56,3 +56,19 @@ def heapSort(iterable):
 - math.sqrt(7) # x의 제곱근을 반환
 - math.gcd(21, 14)
 - math,lcm(a, b) #최소공배수
+
+
+## 람다
+~~~python
+f1 = lambda n1, n2 : n1 + n2
+f1(1, 2) #3
+~~~
+
+### filter(is_odd, st)
+- is_odd를 기준으로 st에 저장된 값들 중 일부 걸러 냄
+~~~python
+st = [1, 2, 3, 4, 5]
+ost = list(filter(lamba n : n % 2, st))
+# [1, 3, 5]
+~~~
+
