@@ -1,4 +1,4 @@
-# 🔆 CS 공부 기록
+
 ### ✅ [컴퓨터구조](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/1.%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C)
 01. 컴퓨터가 이해하는 정보 
 02. 데이터 
@@ -24,23 +24,6 @@
 1. OSI 7계층과 TCP/IP 4계층
 2. HTTP
 
-
-### ✅ [자료구조](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/3.%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-- Array
-- LinkedList
-- Stack
-- Queue
-- Tree
-- Binary Tree
-- Binary Search Tree     
-- Binary Heap
-- Red black tree
-- Hash Table
-- Graph
-- BFS
-- DFS
-- 최소 신장 트리
-- 크루스칼 알고리즘
 
 ### ✅ [알고리즘](https://github.com/hy0417sage/ComputerScience-study-recode/tree/main/3.%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 - 거품 정렬(Bubble Sort)
