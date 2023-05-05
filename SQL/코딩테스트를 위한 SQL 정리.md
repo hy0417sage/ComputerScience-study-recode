@@ -12,3 +12,4 @@
 ### WHERE 과 ORDER BY
 - WHERE : 조건절
 - ORDER BY : 정렬절
+
