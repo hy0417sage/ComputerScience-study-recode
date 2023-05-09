@@ -1,23 +1,23 @@
 # KOTLIN CODINGTEST
 - 코틀린 코딩테스트
 
-## 리스트 string으로 출력하기
+### 리스트 string으로 출력하기
 - 코틀린에서 배열 데이터 출력 형식을 변경할 때 사용한다.
 - 리스트.joinToString("") 
 
-## 특정 문자열 포함되는지 확인
+### 특정 문자열 포함되는지 확인
 - 문자열.contains(특정문자)
 
-## 리스트 정렬
+### 리스트 정렬
 - .sorted()
 
-## 리스트 혹은 문자열 동시 ZIP
+### 리스트 혹은 문자열 동시 ZIP
 - str1.zip(str2)
 
-## 공백으로 구분하기 
+### 공백으로 구분하기 
 - .split(" ")
 
-## intRange를 이용하여 array 생성
+# intRange를 이용하여 array 생성
 - (0..10).toList().toIntArray()
 
 # fold: 리스트에 있는 원소들을 누적해서 계산하는 방법 (값으로 출력)
@@ -37,7 +37,7 @@ else arr.map { it + k }.toIntArray()
 리스트.forEach {index -> answer += index}
 ~~~
 
-# 리스트 슬라이스
+### 리스트 슬라이스
 ~~~kotlin
 리스트.slice(1..3)
 ~~~
