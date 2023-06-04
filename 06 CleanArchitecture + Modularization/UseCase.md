@@ -10,3 +10,18 @@
   - UseCase를 사용하지 않는다면, Repository를 전달 받아서 사용하게 되는데, 전달받은 Repository가 수정이 된다면 해당 Repository 를 사용하는 많은 부분에서 수정이 이뤄저야할 가능성이 높다.
   - UseCase를 사용하게 되면, 영향이 있는 UseCase를 사용하는 부분에서만 수정을 하면 되기 때문에 의존성이 줄어든다.
   - 이렇게 되면, 클린 아키텍처 목적 중 요구사항 변경 시 변경의 최소화를 만족하기 위해서 필요하다.
+
+## UseCase 사용법
+1. Data 계층
+- RepositoryImpl - Domain 계층의 Repository 구현부
+  - DataSource - 실제 데이터 가져오기
+
+2. Doman 계층
+- Repository - interface
+- UseCase - Repository를 사용
+
+3. Presentation 계층
+- ViewModel: UseCase를 사용
+
+### 과정
+- CRUD (data source) > Repository Impl > Repository Interface > Use Case > ViewModel
