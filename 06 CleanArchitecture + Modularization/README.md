@@ -5,9 +5,18 @@
 
 ## 일반 아키텍처 원칙 (CleanArchitecture, MVVM, Repository)
 - 아키텍처 원칙은 크게 두 가지로 볼 수 있습니다.
-  - 관심사 분리
+  - 관심사 분리, 각 분리된 클래스가 한가지 역할만 할 수 있도록 구현하는 방식입니다.
+    - 계층 구조에서 외부에서 내부로 의존성을 가지고 있기 때문에 내부로 갈 수록 의존성은 낮아지게 됩니다.
+    - 자신의 외부에 있는 계층이 변화하는 것 때문에 동작을 행하는 계층에 영향이 있어서는 안됩니다. 그렇기 때문에 계층 내부로 들어갈 수록 의존하는 성격이 낮아지게 됩니다.
   - 데이터 모델에서 UI 도출하기 (이것도 일종의 관심사 분리로 볼 수 있겠죠)
 - UI 및 앱의 구성요소 수명주기는 앱의 데이터와 네트워크 연결에 직접적인 연관성이 없어야 합니다.
+
+#### 클린 아키텍처의 이점
+1. 쉽게 패키지 구조 탐색이 가능해 집니다.
+2. 프로젝트의 유지 보수가 편리해 집니다.
+3. 새로운 기능을 추가할 때, 안정적으로 빠르게 적용이 가능합니다.
+계층을 분리하고, 의존성을 내부로 향하게 하여 다양한 이점을 같도록 설계하는 것이 클린 아키텍처입니다.
+
 
 ### 지속 모델이 이상적인 이유
 - android OS 에서 리소스를 확보하기 위해 앱을 제거해도 사용자 데이터가 삭제되지 않습니다.
@@ -20,9 +29,10 @@
 
 <img src="https://github.com/hy0417sage/TIL/assets/97173983/c4276314-8ac4-4d24-9861-e999948a2b7d" width="500">
 
-- https://developer.android.com/jetpack/guide
+## 사용되는 3가지 계층
+- Presentation(UI), Domain, Data 계층
 
-### 1. [UI Layer](https://developer.android.com/topic/architecture/ui-layer)
+### 1. Presentation 계층 [UI Layer](https://developer.android.com/topic/architecture/ui-layer)
 - UI레이어의 역할은 화면에 애플리케이션 데이터를 표시하는 것입니다.
 - 데이터가 변할 때마다 변경사항을 반영하도록 UI가 업데이트 되어야 합니다.
 
@@ -31,16 +41,19 @@
 2. 데이터를 보유하고 이를 UI에 노출하며 로직을 처리하는 상태 홀더 : **ViewModel** 클래스
 <img src="https://github.com/hy0417sage/TIL/assets/97173983/ab303462-489d-4eb9-9572-8abb4009f256" width="500">
 
-### 2. [Data Layer](https://developer.android.com/topic/architecture/data-layer)
+
+### 2. Domain 계층 (선택적 레이어)[Domain Layer](https://developer.android.com/topic/architecture/domain-layer)
+의존성을 가지고 있지 않은 계층. 비즈니스 로직에 필요한 Data Model과 UseCase가 포함 되어있는 계층입니다. Repository Pattern을 사용한다면, DataModel에 대한 Repository도 포함됩니다.
+- 캡슐화를 담당합니다. (상호작용자)
+- 복합성을 처리하거나 재 사용성을 선호(필요)하는 경우 사용합니다.
+- 이 레이어의 클래스는 하나의 기능을 담당해야 합니다. 예를 들어 ViewModel에서 시간대를 사용하여 화면에 적절한 메시지를 표시하는 경우 앱에는 GetTimeZoneUseCase 클래스가 있을 수 있습니다. (이걸 항상 염두하면서 설계하기)
+
+
+### 3. Data 계층 [Data Layer](https://developer.android.com/topic/architecture/data-layer)
 - 앱의 비즈니스 로직(앱의 데이터 생성, 저장, 변경 방식을 결정하는 규칙)이 포함되어 있습니다.
 - 앱에서 처리하는 다양한 데이터마다 저장소 클래스를 만들어야 합니다.
   - 영화 관련 데이터(MoviesRepository, PaymentRepository 클래스 만들기)
 <img src="https://github.com/hy0417sage/TIL/assets/97173983/fea25f05-ca03-4264-9d16-54012ea2127e" width="500">
-
-### 3. (선택적 레이어) [Domain Layer](https://developer.android.com/topic/architecture/domain-layer)
-- 캡슐화를 담당합니다. (상호작용자)
-- 복합성을 처리하거나 재 사용성을 선호(필요)하는 경우 사용합니다.
-- 이 레이어의 클래스는 하나의 기능을 담당해야 합니다. 예를 들어 ViewModel에서 시간대를 사용하여 화면에 적절한 메시지를 표시하는 경우 앱에는 GetTimeZoneUseCase 클래스가 있을 수 있습니다. (이걸 항상 염두하면서 설계하기)
 
 # 멀티 모듈 적용
 
@@ -67,3 +80,10 @@ domain은 안드로이드 의존성을 갖지 않고 Java와 Kotlin 코드로만
   2. 함께 사용되는 의존성들을 bundle로 묶어 사용할 수 있습니다.
 
 ### Gradle Version Catalog
+
+
+
+### 참고자료
+---
+- https://developer.android.com/jetpack/guide
+- https://heegs.tistory.com/57?category=915533
