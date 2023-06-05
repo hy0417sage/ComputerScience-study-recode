@@ -29,10 +29,15 @@
 
 <img src="https://github.com/hy0417sage/TIL/assets/97173983/c4276314-8ac4-4d24-9861-e999948a2b7d" width="500">
 
-## 사용되는 3가지 계층
+# 사용되는 3가지 계층
 - Presentation(UI), Domain, Data 계층
 
-### 1. Presentation 계층 [UI Layer](https://developer.android.com/topic/architecture/ui-layer)
+### 각 계층에 필요한 것들
+- Domain Layer : Data Model (Entity), Repository, Usecase
+- Data Layer : Local/Remote Data (DTO), DB (Room, Dao), DataSource (Repo), Mapper 
+- Presentation Layer : UI, VM, DI, Module.
+
+## 1. Presentation 계층 [UI Layer](https://developer.android.com/topic/architecture/ui-layer)
 - UI레이어의 역할은 화면에 애플리케이션 데이터를 표시하는 것입니다.
 - 데이터가 변할 때마다 변경사항을 반영하도록 UI가 업데이트 되어야 합니다.
 
@@ -42,14 +47,14 @@
 <img src="https://github.com/hy0417sage/TIL/assets/97173983/ab303462-489d-4eb9-9572-8abb4009f256" width="500">
 
 
-### 2. Domain 계층 (선택적 레이어)[Domain Layer](https://developer.android.com/topic/architecture/domain-layer)
+## 2. Domain 계층 (선택적 레이어)[Domain Layer](https://developer.android.com/topic/architecture/domain-layer)
 의존성을 가지고 있지 않은 계층. 비즈니스 로직에 필요한 Data Model과 UseCase가 포함 되어있는 계층입니다. Repository Pattern을 사용한다면, DataModel에 대한 Repository도 포함됩니다.
 - 캡슐화를 담당합니다. (상호작용자)
 - 복합성을 처리하거나 재 사용성을 선호(필요)하는 경우 사용합니다.
 - 이 레이어의 클래스는 하나의 기능을 담당해야 합니다. 예를 들어 ViewModel에서 시간대를 사용하여 화면에 적절한 메시지를 표시하는 경우 앱에는 GetTimeZoneUseCase 클래스가 있을 수 있습니다. (이걸 항상 염두하면서 설계하기)
 
 
-### 3. Data 계층 [Data Layer](https://developer.android.com/topic/architecture/data-layer)
+## 3. Data 계층 [Data Layer](https://developer.android.com/topic/architecture/data-layer)
 - 앱의 비즈니스 로직(앱의 데이터 생성, 저장, 변경 방식을 결정하는 규칙)이 포함되어 있습니다.
 - 앱에서 처리하는 다양한 데이터마다 저장소 클래스를 만들어야 합니다.
   - 영화 관련 데이터(MoviesRepository, PaymentRepository 클래스 만들기)
