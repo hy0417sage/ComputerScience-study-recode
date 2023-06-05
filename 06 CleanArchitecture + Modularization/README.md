@@ -32,7 +32,7 @@
 # 사용되는 3가지 계층
 - Presentation(UI), Domain, Data 계층
 
-### 각 계층에 필요한 것들
+### ✨각 계층에 필요한 것들
 - Domain Layer : Data Model (Entity), Repository, Usecase
 - Data Layer : Local/Remote Data (DTO), DB (Room, Dao), DataSource (Repo), Mapper 
 - Presentation Layer : UI, VM, DI, Module.
