@@ -16,16 +16,16 @@
 ![image](https://github.com/hy0417sage/TIL/assets/97173983/3ee87651-b619-4ddf-82de-ab5684ddcebf)
 
 1. Repository 저장소 계층
-  1. PagingSource
-    - Repository 계층의 기본이 되는 구성요소는 PagingSource이다.
-    - 각 PagingSource 객체는 네트워크 소스 및 로컬 데이터베이스를 포함하여 전체 데이터로부터 부분적으로 데이터를 로드할 수 있다.
-  2. RemoteMediator
-    - RemoteMediator는 네트워크로 부터 받은 데이터를 로컬 DB를 통해 캐시하는 경우 페이징 하는데 함께 사용힐 수 있다.
+- PagingSource
+  - Repository 계층의 기본이 되는 구성요소는 PagingSource이다.
+  - 각 PagingSource 객체는 네트워크 소스 및 로컬 데이터베이스를 포함하여 전체 데이터로부터 부분적으로 데이터를 로드할 수 있다.
+- RemoteMediator
+  - RemoteMediator는 네트워크로 부터 받은 데이터를 로컬 DB를 통해 캐시하는 경우 페이징 하는데 함께 사용힐 수 있다.
 
-2. ViewModel 계층
+- ViewModel 계층
   - pager는 PagingSource 및 PagingConfig 를 기반으로 반응형 스트림에서 사용되는 PagingData 인스턴스를 구성하기 위한 공용 API를 제공하는데 이 때 ViewModel 계층을 UI에 연결하는 구성요소는 PagingData 이다.
   - PagingData 개체는 페이지가 매겨진 데이터의 스냅샷을 위한 컨테이너로, PagingSource 개체를 퀴리하고 결과를 저장한다.
   
- 3. UI 계층
+- UI 계층
   - UI 계층의 기본 Paging 라이브러리 구성 요소는 PagingDataAdapter로 페이지가 매겨진 데이터를 처리한다.
   - 만약 PagingDataAdapter가 아닌 RecyclerView.Adapter 등을 확장하는 커스텀 어댑터를 구현하려면 AsyncPagingDataDiffer를 사용할 수 있다.
