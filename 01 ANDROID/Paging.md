@@ -30,3 +30,55 @@
 - UI 계층
   - UI 계층의 기본 Paging 라이브러리 구성 요소는 PagingDataAdapter로 페이지가 매겨진 데이터를 처리한다.
   - 만약 PagingDataAdapter가 아닌 RecyclerView.Adapter 등을 확장하는 커스텀 어댑터를 구현하려면 AsyncPagingDataDiffer를 사용할 수 있다.
+
+
+## PagingSource 구현
+- paging에서 PagingSoruce는 데이터 소스와 이 소스에서 데이터를 검색하는 방법을 정의한다.
+- PagingSoruce 객체는 네트워크 소스 및 로컬 데이터베이스를 포함한 단일 소스에서 데이터를 로드할 수 있다.
+~~~kotlin
+class SearchItemPagingSource(
+    private val pagingData: ApiPagingModel,
+) : PagingSource<Int, SearchItem>() {
+
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchItem> {
+        pagingData.exception?.run {
+            return LoadResult.Error(this)
+        }
+        val page = params.key ?: SEARCH_STARTING_PAGE_INDEX
+        return try {
+            val chunkedList = fetchImagesByPage(
+                data = pagingData,
+                page = page
+            )
+            LoadResult.Page(
+                data = chunkedList,
+                prevKey = if (page == SEARCH_STARTING_PAGE_INDEX) null else page - 1,
+                nextKey = if (page == (pagingData.searchItemList.size / PAGE_SIZE) + 1) null else page + 1
+            )
+        } catch (exception: Exception) {
+            LoadResult.Error(exception)
+        }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, SearchItem>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
+        }
+    }
+
+    private fun fetchImagesByPage(data: ApiPagingModel, page: Int): List<SearchItem> {
+        val chunkedList = data.searchItemList.chunked(PAGE_SIZE)
+        return chunkedList[page - 1]
+    }
+}
+~~~
+- getRefreshKey()
+  - 데이터의 업데이트 또는 새로고침을 할때 현재 리스트를 대체할 새로운 데이터를 로그할 때 사용이되는 함수입니다.   - 즉, 데이터를 새로고침할때 적절한 key 값을 반환해준다.
+- load(params: LoadParams)
+  - 실제 데이터를 로드하는 함수입니다. 데이터는 로컬 또는 remote에서 받아오는데 이 예제에서는 아까 설정했던 카카오 검색 API를 사용하였다. 여기서 withContext를 사용하여 IO 디스패처 코루틴에서 실행해 비동기로 데이터를 불러온다.
+  - load에서 nextKey는 해당 다음 페이지를 로드할때 사용하는데 카카오 API에서 is_end 변수가 페이지 끝을 의미하기때문에 만약 is_end가 true라면 null값을 nextKey로 반환하여 더이상 페이지를 불러오지 않도록 설정합니다.
+  - 이렇게 data, prevKey 그리고 nextKey를 LoadResult.Page()를 통해 리턴해준다.
+  - paging 도중 네트워크 오류와 같이 오류가 발생할 수 있기 때문에 LoadResult.Error()를 통해 오류도 반환해준다.
+    - LoadResult.Page : 로드에 성공한 경우, 데이터와 이전 다음 페이지 Key가 포함된다.
+    - LoadResult.Error : 오류가 발생한 경우
