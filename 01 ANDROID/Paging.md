@@ -82,3 +82,9 @@ class SearchItemPagingSource(
   - paging 도중 네트워크 오류와 같이 오류가 발생할 수 있기 때문에 LoadResult.Error()를 통해 오류도 반환해준다.
     - LoadResult.Page : 로드에 성공한 경우, 데이터와 이전 다음 페이지 Key가 포함된다.
     - LoadResult.Error : 오류가 발생한 경우
+
+
+
+### 참고
+- [구글 공식](https://developer.android.com/topic/libraries/architecture/paging/v3-overview?hl=ko)
+- [Paging 3, MVVM, Coroutine, Hilt, Flow를 사용해 RecyclerView 구현하기](https://velog.io/@eoqkrskfk94/Paging-3-MVVM-Coroutine-Hilt-Flow%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4-RecyclerView-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
